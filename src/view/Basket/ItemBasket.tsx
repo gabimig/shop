@@ -53,7 +53,8 @@ const ItemBasket = ({ item, unitsInBsaket, group }: ProductProps): React.ReactEl
     const classes = useStyles()
     const dispatch = useDispatch()
     const { value: ratio } = useSelector(changeRatioSelector)
-    const convertedPrice = (item.price * ratio).toFixed()
+    const totalPrice = (item.price * unitsInBsaket).toFixed()
+    const convertedPrice = (item.price * unitsInBsaket * ratio).toFixed()
 
     const handleAdd = (addition: number) => {
         const newValue = unitsInBsaket + addition
@@ -74,7 +75,7 @@ const ItemBasket = ({ item, unitsInBsaket, group }: ProductProps): React.ReactEl
             </Grid>
             <Grid item xs={2}>
                 <div style={{ height: '50%' }}>
-                    {`${item.price} $ - ${convertedPrice} ₽`}
+                    {`${totalPrice} $ - ${convertedPrice} ₽`}
                 </div>
                 <div style={{ height: '50%' }}>{`${item.units} u`}</div>
             </Grid>
