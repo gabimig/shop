@@ -1,0 +1,6 @@
+{
+    "eslint.format.enable": true,
+    "editor.formatOnSave": true,
+    "files.eol": "\n",
+    "eslint.lintTask.enable": true
+}
